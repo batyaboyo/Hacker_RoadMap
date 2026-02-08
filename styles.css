@@ -1186,10 +1186,30 @@ footer {
     }
 }
 
-/* Responsive */
+/* Responsive Refinements */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    h1 {
+        font-size: 3.2rem;
+    }
+
+    .uganda-grid,
+    .resources-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
     }
 
     .menu-toggle {
@@ -1198,25 +1218,46 @@ footer {
     }
 
     nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(5, 5, 5, 0.95);
-        border-bottom: var(--glass-border);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(5, 5, 5, 0.98);
+        backdrop-filter: blur(20px);
+        border-left: var(--glass-border);
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 2000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     nav.active {
-        max-height: 300px;
+        right: 0;
     }
 
     nav ul {
         flex-direction: column;
         align-items: center;
-        padding: 2rem 0;
+        gap: 2.5rem;
+    }
+
+    nav a {
+        font-size: 1.2rem;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .phases-container {
@@ -1224,17 +1265,65 @@ footer {
     }
 
     .content-grid {
-        padding: 0 1rem 1rem 1rem;
+        padding: 0 1rem 1.5rem 1rem;
         grid-template-columns: 1fr;
     }
 
     .phase-header {
-        padding: 1rem;
+        padding: 1.2rem;
     }
 
     .phase-icon {
         width: 40px;
         font-size: 1.5rem;
+    }
+
+    .phase-title h3 {
+        font-size: 1.2rem;
+    }
+
+    #secondary-nav {
+        top: 65px;
+        /* Adjust based on header height */
+    }
+
+    .phase-nav-content {
+        gap: 1.5rem;
+        padding: 0 1rem;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .glitch-text {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .progress-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .progress-controls {
+        width: 100%;
+        justify-content: space-between;
     }
 }
 
